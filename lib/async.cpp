@@ -11,8 +11,7 @@ namespace async {
         _buffer.append(data, size);
         std::string::size_type prev_pos = 0, pos = 0;
         while ((pos = _buffer.find('\n', pos)) != std::string::npos) {
-            std::string substr(_buffer.substr(prev_pos, pos-prev_pos));
-            _state.push_command(substr);
+            _state.push_command(s_buffer.substr(prev_pos, pos-prev_pos));
             ++pos;
             prev_pos = pos; 
         }
