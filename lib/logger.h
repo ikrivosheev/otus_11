@@ -1,6 +1,7 @@
 #ifndef LOGGER_H
 #define LOGGER_H
 
+#include <mutex>
 #include <vector>
 #include <memory>
 #include <type_traits>
@@ -10,10 +11,8 @@
 
 class Logger {
     public:
-        Logger(const Logger&&) = default;
-        Logger& operator = (const Logger&) = default;
+        Logger(bool signal=true);
 
-        Logger() {} = delete;
         Logger(const Logger&) = delete;
         Logger& operator = (const Logger&) = delete;
 
@@ -28,15 +27,21 @@ class Logger {
         void log(const std::string&);
         void log(const std::string&, const std::time_t&);
 
+        void shutdown(int signum=-1);
+
         ~Logger() = default;
 
         static Logger& get() {
             static Logger logger;
             return logger;
         }
+        static void signal(int signal) {
+            get().shutdown(signal);
+        }
 
     private:
-        
+        bool _signal = false;
+        std::mutex _mutex;
         std::vector<std::unique_ptr<IHandler>> _handlers;
 };
 

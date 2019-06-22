@@ -2,6 +2,7 @@
 #define FILE_HANDLER_H
 
 #include <string>
+#include <mutex>
 #include <fstream>
 #include "handler.h"
 
@@ -15,6 +16,7 @@ class FileHandler: public IHandler {
         ~FileHandler();
 
     private:
+        std::mutex _mutex;
         std::string _base_dir;
         std::string _prefix;
         std::ofstream _stream;

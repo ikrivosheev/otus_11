@@ -10,7 +10,7 @@ project(bulk VERSION 0.0.${PROJECT_MINOR_VERSION})
 
 include(gtest.cmake)
 
-add_subdirectory(src)
+add_subdirectory(lib)
 
 enable_testing()
 add_subdirectory(tests)

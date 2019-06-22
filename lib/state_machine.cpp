@@ -2,9 +2,7 @@
 #include "state_machine.h"
 
 
-StateMachine::StateMachine(int bulk_size) {
-    _bulk_size = bulk_size;
-}
+StateMachine::StateMachine(std::size_t bulk_size): _bulk_size(bulk_size) {}
 
 STATE StateMachine::current_state() {
     return _cstate;

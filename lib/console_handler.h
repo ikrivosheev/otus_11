@@ -2,6 +2,7 @@
 #define CONSOLE_HANDLER_H
 
 #include <memory>
+#include <mutex>
 #include "handler.h"
 
 

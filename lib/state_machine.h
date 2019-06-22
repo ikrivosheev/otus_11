@@ -16,7 +16,7 @@ enum class STATE {
 
 class StateMachine {
     public:
-        StateMachine(int);
+        StateMachine(std::size_t);
         StateMachine(const StateMachine&) = default;
         ~StateMachine() = default;
         
@@ -26,7 +26,7 @@ class StateMachine {
     
     private:
         
-        int _bulk_size;
+        std::size_t _bulk_size;
         STATE _cstate = STATE::COMMAND;
         std::time_t _time = 0;
         std::stack<char> _stack;
