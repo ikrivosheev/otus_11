@@ -2,6 +2,9 @@
 
 #include <cstddef>
 #include "state_machine.h"
+#include "logger.h"
+#include "console_handler.h"
+#include "file_handler.h"
 
 namespace async {
 

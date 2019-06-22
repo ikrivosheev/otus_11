@@ -8,6 +8,16 @@ namespace async {
     }
 
     void receive(handle_t handle, const char *data, std::size_t size) {
+        if (!size) {
+            return; 
+        }
+        if (data[0] == '\n') {
+            data++;
+            size--;
+        }
+        if (!size) {
+            return;
+        }
         std::stringstream ss;
         ss.write(data, size);
         for (std::string line; std::getline(ss, line);) {
