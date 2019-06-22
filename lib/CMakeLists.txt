@@ -6,8 +6,14 @@ set_target_properties(async PROPERTIES
    CXX_STANDARD 14
    CXX_STANDARD_REQUIRED ON
    COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra"
+   PUBLIC_HEADER "async.h;record.h;logger.h;console_handler.h;file_handler.h;state_machine.h;version.h;config.h"
 )
 
 target_include_directories(async PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
-install(TARGETS async RUNTIME LIBRARY DESTINATION lib)
+install(TARGETS async 
+    LIBRARY 
+        DESTINATION lib
+    PUBLIC_HEADER
+        DESTINATION include
+)
