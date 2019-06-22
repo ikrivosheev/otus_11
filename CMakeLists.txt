@@ -6,7 +6,7 @@ else()
     set(PROJECT_MINOR_VERSION 0)
 endif()
 
-project(bulk VERSION 0.0.${PROJECT_MINOR_VERSION})
+project(async VERSION 0.0.${PROJECT_MINOR_VERSION})
 
 include(gtest.cmake)
 
